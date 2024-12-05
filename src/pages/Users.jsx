@@ -29,7 +29,8 @@ const Users = () => {
         {users.map(user => (
           <li key={user.id} className="border p-4 flex justify-between items-center">
             <div>
-              <p>Name: {user.firstname} {user.lastname}</p>
+              <p>Name: {user.firstname}</p>
+              <p>Last name{user.lastname}</p>
               <p>Age: {user.age}</p>
               <p>Profession: {user.profession}</p>
               <p>Gender: {user.gender}</p>
