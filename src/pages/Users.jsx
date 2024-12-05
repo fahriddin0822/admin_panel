@@ -18,8 +18,8 @@ const Users = () => {
   };
 
   const handleEdit = (user) => {
-    startEditingUser(user); // Set the user to edit
-    navigate('/create'); // Navigate to Create User page
+    startEditingUser(user); 
+    navigate('/create'); 
   };
 
   return (

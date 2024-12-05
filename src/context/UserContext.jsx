@@ -1,18 +1,18 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect } from "react";
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [users, setUsers] = useState([]);
-  const [editingUser, setEditingUser] = useState(null); // Track the user being edited
+  const [editingUser, setEditingUser] = useState(null);
 
   useEffect(() => {
-    const storedUsers = JSON.parse(localStorage.getItem('users')) || [];
+    const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
     setUsers(storedUsers);
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('users', JSON.stringify(users));
+    localStorage.setItem("users", JSON.stringify(users));
   }, [users]);
 
   const addUser = (user) => {
@@ -20,12 +20,12 @@ export const UserProvider = ({ children }) => {
   };
 
   const updateUser = (id, updatedUser) => {
-    setUsers(users.map(user => (user.id === id ? updatedUser : user)));
-    setEditingUser(null); // Clear editing state after updating
+    setUsers(users.map((user) => (user.id === id ? updatedUser : user)));
+    setEditingUser(null);
   };
 
   const deleteUser = (id) => {
-    setUsers(users.filter(user => user.id !== id));
+    setUsers(users.filter((user) => user.id !== id));
   };
 
   const startEditingUser = (user) => {

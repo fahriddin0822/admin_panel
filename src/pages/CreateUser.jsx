@@ -12,7 +12,6 @@ const CreateUser = () => {
     gender: '',
   });
 
-  // Populate form when editing a user
   useEffect(() => {
     if (editingUser) {
       setFormData(editingUser);
@@ -38,11 +37,9 @@ const CreateUser = () => {
 
     if (firstname && lastname && age && profession && gender) {
       if (editingUser) {
-        // Update user
         updateUser(editingUser.id, formData);
         alert('User updated successfully!');
       } else {
-        // Create new user
         addUser({ id: Date.now(), ...formData });
         alert('User created successfully!');
       }
